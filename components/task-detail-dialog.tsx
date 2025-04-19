@@ -143,7 +143,7 @@ export default function TaskDetailDialog({ open, onOpenChange, task, onUpdate, o
         onOpenChange(isOpen)
       }}
     >
-      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto z-50">
+      <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto" style={{ zIndex: 50 }}>
         <DialogHeader>
           <DialogTitle className="flex items-center justify-between">
             <span>{isEditing ? "Edit Task" : "Task Details"}</span>
@@ -237,7 +237,7 @@ export default function TaskDetailDialog({ open, onOpenChange, task, onUpdate, o
                           {dueDate ? format(dueDate, "PPP") : <span>Pick a date</span>}
                         </Button>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0">
+                      <PopoverContent className="w-auto p-0" align="start" side="bottom" sideOffset={4}>
                         <CalendarComponent mode="single" selected={dueDate} onSelect={setDueDate} initialFocus />
                       </PopoverContent>
                     </Popover>
@@ -318,7 +318,7 @@ export default function TaskDetailDialog({ open, onOpenChange, task, onUpdate, o
                     </Badge>
 
                     <Badge variant="outline" className="flex items-center gap-1">
-                      <CalendarComponent className="h-3 w-3" />
+                      <CalendarIcon className="h-3 w-3" />
                       {formatDateReadable(task.dueDate)}
                     </Badge>
                   </div>
